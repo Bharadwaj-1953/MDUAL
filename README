@@ -1,0 +1,41 @@
+README for MDUAL
+
+This project uses the MDUAL algorithm to detect outliers in streaming data. Please use the Visual Studio Code (VS Code) IDE to compile and run the project.
+
+How to Set Up and Run the Project in VS Code:
+
+1. First, unzip the provided MDUAL folder.(All the required datasets are provided in the zip file)
+2. Open Visual Studio Code.
+3. Go to File → Open Folder and select the unzipped MDUAL project folder.
+4. Install the necessary extensions (like C++, Code Runner)
+5. Open the Terminal and select the new terminal.
+
+6. Go to src folder by using the command. 
+
+cd src
+
+
+7. Compile the project using the command below
+
+clang++ -std=c++17 \
+  test/testLoad.cpp \
+  MDUAL/MDUAL.cpp \
+  MDUAL/Utils.cpp \
+  MDUAL/Cell.cpp \
+  MDUAL/globalCell.cpp \
+  simulator/QueryGenerator.cpp \
+  simulator/Simulator.cpp \
+  simulator/MemoryThread.cpp \
+  loader/DataLoader.cpp \
+  loader/QueryLoader.cpp \
+  simulator/Measure.cpp \
+  -o testLoad
+
+8. When running the program, you will need to provide dataset as an input:
+   - Enter 'STK' for Stock Market dataset
+   - Enter 'TAO' for TAO dataset
+
+9. After compiling, run the program using 
+
+./testLoad
+
