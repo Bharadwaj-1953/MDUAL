@@ -1,20 +1,19 @@
-# Multiple Dynamic Outlier-Detection from a Data Stream by Exploiting Duality of Data and Queries
+<h1 align="center">
+Multiple Dynamic Outlier-Detection from a Data Stream<br>
+by Exploiting Duality of Data and Queries
+</h1>
 
-## Abstract
-Real-time outlier detection from a data stream has become increasingly important in the current hyperconnected world.  
-This project focuses on an important yet often unaddressed challenge in continuous outlier detection: the multiplicity and dynamicity of queries.  
-This challenge arises because outliers evolve over time, but most state-of-the-art algorithms cannot handle multiple dynamic queries effectively — they process a fixed set of queries separately for each data point.
+## 📝 Abstract
 
-**MDUAL** is a novel algorithm based on a new idea called **duality-based unified processing**.  
-By exploiting the **duality of data and queries**, MDUAL groups similar data points and similar queries together, allowing efficient and incremental processing.
+Detecting outliers in real time from continuously evolving data streams is crucial for applications such as network security, financial monitoring, and sensor networks. Traditional streaming outlier-detection algorithms typically assume a fixed set of distance-based queries and process each one independently, leading to redundant computations and significant memory and time overhead, especially when queries change dynamically over time.
 
-Two main techniques embody the idea:
-- **Data-Query Grouping**
-- **Prioritized Group Processing**
+In this project, we present MDUAL, a novel algorithm based on duality-based unified processing. By exploiting the natural duality between data points and queries, MDUAL groups similar queries and clusters of nearby data points together, enabling efficient shared and incremental computation. Two key techniques, data-query grouping, which merges queries with overlapping data regions, and prioritized group processing, which dynamically updates query results as new data arrives, allow MDUAL to significantly reduce the number of distance computations and memory usage compared to traditional methods.
 
-Comprehensive experiments demonstrated that MDUAL achieves **216x to 221x faster execution** while consuming **11x to 13x less memory** compared to state-of-the-art algorithms, thus effectively addressing the multiplicity–dynamicity challenge in streaming environments.
+We implemented MDUAL in C++17, with a strong focus on real-time performance, low memory overhead, and modular, extensible design. Through comprehensive experiments on six benchmark datasets, ranging from 1-dimensional stock market data to 55-dimensional forest cover data, we demonstrate that MDUAL achieves up to 221× speedup and consumes up to 13× less memory compared to state-of-the-art methods like SOP and pMCSKY. These results highlight that MDUAL provides a scalable and efficient solution for dynamic, multi-query outlier detection in modern high-speed data stream environments.
 
 ---
+
+
 
 ## How to Run the Code
 
@@ -26,7 +25,13 @@ Comprehensive experiments demonstrated that MDUAL achieves **216x to 221x faster
 
 ### 🔧 Compilation Instructions
 
-In the project root directory, compile using:
+1. Navigate to the project root directory:
+
+```bash
+cd src
+```
+
+2. Compile the project using the command below:
 
 ```bash
 clang++ -std=c++17 \
@@ -42,3 +47,39 @@ clang++ -std=c++17 \
   loader/QueryLoader.cpp \
   simulator/Measure.cpp \
   -o testLoad
+```
+
+If you prefer to use ```g++```, simply replace ```clang++``` with ```g++``` in the command.
+
+
+3. After compilation, run the executable using:
+```bash
+./testLoad
+```
+
+4. When prompted, provide the dataset input. For example, to select the Stock Market dataset:
+```bash
+STK
+```
+
+
+## 🗂️ Data Sets
+
+| Name | # Data Points | # Dimensions | Size  | Link |
+|:----:|:-------------:|:------------:|:-----:|:----:|
+| STK  | 1.05M          | 1             | 7.57MB | [link](https://infolab.usc.edu/Luan/Outlier/Datasets/stock.txt) |
+| TAO  | 0.58M          | 3             | 10.7MB | [link](https://infolab.usc.edu/Luan/Outlier/Datasets/tao.txt) |
+| HPC  | 1M             | 7             | 28.4MB | [link](https://infolab.usc.edu/Luan/Outlier/Datasets/household2.txt) |
+| GAS  | 0.93M          | 10            | 70.7MB | [link](http://archive.ics.uci.edu/ml/machine-learning-databases/00362/HT_Sensor_UCIsubmission.zip) |
+| EM   | 1M             | 16            | 119MB  | [link](https://infolab.usc.edu/Luan/Outlier/Datasets/ethylene.txt) |
+| FC   | 1M             | 55            | 72.2MB | [link](https://infolab.usc.edu/Luan/Outlier/Datasets/fc.data) |
+
+## 📊 Experimental Results and Analysis
+
+- Extensive experiments were conducted using the six benchmark datasets to evaluate the runtime performance, memory efficiency, and outlier detection accuracy of the MDUAL algorithm.  
+- Detailed runtime graphs, memory usage charts, and full experimental analysis are available upon request.  
+- If you would like access to the complete results, visualizations, or further discussions, please feel free to contact me.
+
+🌐 **Contact:** 
+- **Email**: manne.bharadwaj.1953@gmail.com
+- **LinkedIn**: [Bharadwaj Manne](https://www.linkedin.com/in/bharadwaj-manne-711476249/)
