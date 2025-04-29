@@ -3,13 +3,17 @@ Multiple Dynamic Outlier-Detection from a Data Stream<br>
 by Exploiting Duality of Data and Queries
 </h1>
 
-## 📝 Abstract
 
+## 📝 Abstract
+<div align="justify">
+  
 Detecting outliers in real time from continuously evolving data streams is crucial for applications such as network security, financial monitoring, and sensor networks. Traditional streaming outlier-detection algorithms typically assume a fixed set of distance-based queries and process each one independently, leading to redundant computations and significant memory and time overhead, especially when queries change dynamically over time.
 
 In this project, we present MDUAL, a novel algorithm based on duality-based unified processing. By exploiting the natural duality between data points and queries, MDUAL groups similar queries and clusters of nearby data points together, enabling efficient shared and incremental computation. Two key techniques, data-query grouping, which merges queries with overlapping data regions, and prioritized group processing, which dynamically updates query results as new data arrives, allow MDUAL to significantly reduce the number of distance computations and memory usage compared to traditional methods.
 
 We implemented MDUAL in C++17, with a strong focus on real-time performance, low memory overhead, and modular, extensible design. Through comprehensive experiments on six benchmark datasets, ranging from 1-dimensional stock market data to 55-dimensional forest cover data, we demonstrate that MDUAL achieves up to 221× speedup and consumes up to 13× less memory compared to state-of-the-art methods like SOP and pMCSKY. These results highlight that MDUAL provides a scalable and efficient solution for dynamic, multi-query outlier detection in modern high-speed data stream environments.
+
+</div>
 
 ---
 
